@@ -1,10 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 
-import { ThemeContext } from '../utils/context';
-
-export const ButtonAqua = ({ children, title, onPress, theme }) => {
+const ButtonAqua = ({ children, title, onPress, theme }) => {
     return (
         <TouchableOpacity
             onPress={onPress}
@@ -25,22 +22,6 @@ export const ButtonAqua = ({ children, title, onPress, theme }) => {
     );
 };
 
-export const ButtonFalse = ({ onPress, theme }) => {
-    return (
-        <TouchableOpacity onPress={onPress}>
-            <AntDesign name="closecircle" size={48} color={theme.colors.false} />
-        </TouchableOpacity>
-    );
-}
-
-export const ButtonTrue = ({ onPress, theme }) => {
-    return (
-        <TouchableOpacity onPress={onPress}>
-            <AntDesign name="checkcircle" size={48} color={theme.colors.true} />
-        </TouchableOpacity>
-    );
-}
-
 const styles = StyleSheet.create({
     button: {
         borderRadius: 20,
@@ -53,3 +34,5 @@ const styles = StyleSheet.create({
         fontSize: 20
     }
 });
+
+export default ButtonAqua;

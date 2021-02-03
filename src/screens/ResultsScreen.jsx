@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import { Text, ScrollView, View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons';
 
 import { ThemeContext } from '../utils/context';
 
-import Answer from '../components/Answer';
-import { ButtonAqua } from '../components/Buttons';
+import ButtonAqua from '../components/ButtonAqua';
 import Layout from '../components/Layout';
+import Results from '../components/Results';
 import Score from '../components/Score';
 
 const ResultsScreen = ({ route }) => {
@@ -17,7 +17,10 @@ const ResultsScreen = ({ route }) => {
     const { theme } = useContext(ThemeContext);
     return (
         <Layout>
-            <Score results={results} theme={theme} />
+            <Score
+                results={results}
+                theme={theme}
+            />
             <LinearGradient
                 colors={[ 'rgba(255, 234, 248, 0)', '#e1eaf8']}
                 start={[0, 0.6]}
@@ -27,21 +30,10 @@ const ResultsScreen = ({ route }) => {
                     { marginBottom: -80, zIndex: 10 }
                 ]}
             />
-            <ScrollView
-                style={styles.container}
-                showsVerticalScrollIndicator={false}
-            >
-                <View style={styles.innerContainer}>
-                    {answers.map((item, index) => (
-                        <Answer
-                            key={`${index}-key`}
-                            isCorrect={item.answer}
-                            question={item.question}
-                            theme={theme}
-                        />
-                    ))}
-                </View>
-            </ScrollView>
+            <Results
+                answers={answers}
+                theme={theme}
+            />
             <Entypo
                 name='chevron-down'
                 size={24}
@@ -67,16 +59,6 @@ const ResultsScreen = ({ route }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 40,
-        paddingBottom: 60,
-        width: '100%',
-        position: 'relative'
-    },
-    innerContainer: {
-        marginBottom: 50
-    },
     icon: {
         marginBottom: 8,
         zIndex: 10

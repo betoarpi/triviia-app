@@ -3,8 +3,7 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import { decode } from 'html-entities';
 
 import { ThemeContext } from '../utils/context';
-
-import { ButtonTrue, ButtonFalse } from './Buttons';
+import AnswerButton from '../components/AnswerButton';
 import Card from './Card';
 import Difficulty from './Difficulty';
 import Paragraph from './Paragraph';
@@ -41,13 +40,15 @@ const Question = ({
                 <QuestionTitle>{decode(question)}</QuestionTitle>
             </Card>
             <View style={styles.buttonContainer}>
-                <ButtonFalse
+                <AnswerButton
                     onPress={() => handleAnswer(false)}
                     theme={theme}
+                    type={false}
                 />
-                <ButtonTrue
+                <AnswerButton
                     onPress={() => handleAnswer(true)}
                     theme={theme}
+                    type={true}
                 />
             </View>
         </View>

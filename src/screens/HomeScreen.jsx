@@ -4,10 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 
 import { ThemeContext } from '../utils/context';
 
+import ButtonAqua from '../components/ButtonAqua';
 import Layout from '../components/Layout';
 import MainTitle from '../components/MainTitle';
 import Paragraph from '../components/Paragraph';
-import { ButtonAqua } from '../components/Buttons';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
