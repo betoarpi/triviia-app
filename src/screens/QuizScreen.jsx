@@ -7,8 +7,11 @@ import Loading from '../components/Loading';
 import Question from '../components/Question';
 import Progress from '../components/Progress';
 
-const QuizScreen = () => {
+const API = 'https://opentdb.com/api.php?amount=10';
+
+const QuizScreen = ({ route }) => {
     const [questions, setQuestions] = useState(null);
+    const [error, setError] = useState(null);
     useEffect(() => {
         getQuestionsFromApi();
     }, []);
@@ -25,13 +28,15 @@ const QuizScreen = () => {
     const refQuestionList = useRef(null);
 
     const navigation = useNavigation();
+    const { difficulty } = route.params;
     
     async function getQuestionsFromApi() {
         try {
-            let response = await fetch('https://opentdb.com/api.php?amount=10&type=boolean');
+            let response = await fetch(`${API}${difficulty !== 'random' ? `&difficulty=${difficulty}` : ''}&type=boolean`);
             let responseJson = await response.json();
             return setQuestions(responseJson.results);
         } catch (error) {
+            setError(true);
             console.log(error)
         }
     }
@@ -107,6 +112,12 @@ const QuizScreen = () => {
                         showsHorizontalScrollIndicator={false}
                     />
                 </View>
+            </Layout>
+        );
+    } else if(error === true) {
+        return(
+            <Layout>
+                <Text>There has been an error. Please try again later.</Text>
             </Layout>
         );
     } else {

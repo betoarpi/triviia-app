@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-import { ThemeContext } from '../utils/context';
+import { ThemeContext } from '../../utils/context';
 
-const QuestionTitle = ({children}) => {
+const MainTitle = ({children}) => {
     const { theme } = useContext(ThemeContext);
     return (
         <Text style={[styles.title, {color: theme.colors.primary}]}>
@@ -15,10 +15,11 @@ const QuestionTitle = ({children}) => {
 const styles = StyleSheet.create({
     title: {
         fontFamily: 'SourceSansPro_900Black',
-        fontSize: 23.04,
-        lineHeight: 26,
+        fontSize: 39.81,
+        lineHeight: 45,
+        marginBottom: 24,
         textAlign: 'center'
     }
 });
 
-export default QuestionTitle;
+export default MainTitle;

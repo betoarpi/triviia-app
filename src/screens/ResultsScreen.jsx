@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons';
 
 import { ThemeContext } from '../utils/context';
 
-import ButtonAqua from '../components/ButtonAqua';
+import ButtonAqua from '../components/buttons/ButtonAqua';
 import Layout from '../components/Layout';
 import Results from '../components/Results';
 import Score from '../components/Score';

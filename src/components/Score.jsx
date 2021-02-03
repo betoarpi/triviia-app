@@ -20,7 +20,7 @@ const Score = ({ results, theme }) => {
         return score <= 0.5 ?
             'You can do it better'
         : score <= 0.7 ?
-            'Oh, nice try'
+            'Oh! nice try'
         : score <= 0.9 ?
             'Wow! very nice'
         :

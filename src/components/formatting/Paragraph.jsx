@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-import { ThemeContext } from '../utils/context';
+import { ThemeContext } from '../../utils/context';
 
 const Paragraph = ({ children, bold }) => {
     const { theme } = useContext(ThemeContext);

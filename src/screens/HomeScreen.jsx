@@ -4,10 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 
 import { ThemeContext } from '../utils/context';
 
-import ButtonAqua from '../components/ButtonAqua';
+import ButtonAqua from '../components/buttons/ButtonAqua';
 import Layout from '../components/Layout';
-import MainTitle from '../components/MainTitle';
-import Paragraph from '../components/Paragraph';
+import MainTitle from '../components/formatting/MainTitle';
+import Paragraph from '../components/formatting/Paragraph';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
@@ -23,7 +23,7 @@ const HomeScreen = () => {
             <Paragraph bold={true}>Can you score 100%?</Paragraph>
             <ButtonAqua
                 title='Begin'
-                onPress={() => navigation.replace('Quiz')}
+                onPress={() => navigation.navigate('Quiz Options')}
                 theme={theme}
             />
         </Layout>

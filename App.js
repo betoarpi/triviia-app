@@ -8,6 +8,7 @@ import { ThemeContext } from './src/utils/context';
 import Theme from './src/utils/Theme'
 
 import HomeScreen from './src/screens/HomeScreen';
+import QuizOptions from './src/screens/QuizOptionsScreen';
 import QuizScreen from './src/screens/QuizScreen';
 import ResultsScreen from './src/screens/ResultsScreen';
 
@@ -37,6 +38,10 @@ export default function App() {
             <Stack.Screen
               name='Home'
               component={HomeScreen}
+            />
+            <Stack.Screen
+              name='Quiz Options'
+              component={QuizOptions}
             />
             <Stack.Screen
               name='Quiz'

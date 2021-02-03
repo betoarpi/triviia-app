@@ -3,11 +3,11 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import { decode } from 'html-entities';
 
 import { ThemeContext } from '../utils/context';
-import AnswerButton from '../components/AnswerButton';
+import AnswerButton from './buttons/AnswerButton';
 import Card from './Card';
 import Difficulty from './Difficulty';
-import Paragraph from './Paragraph';
-import QuestionTitle from './QuestionTitle';
+import Paragraph from './formatting/Paragraph';
+import QuestionTitle from './formatting/QuestionTitle';
 
 const { width } = Dimensions.get('window');
 
