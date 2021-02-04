@@ -7,7 +7,7 @@ import { ThemeContext } from '../utils/context';
 
 import DifficultyButton from '../components/buttons/DifficultyButton';
 import Layout from '../components/Layout';
-import QuestionTitle from '../components/formatting/QuestionTitle';
+import Title from '../components/formatting/Title';
 
 const QuizOptions = () => {
     const { theme } = useContext(ThemeContext);
@@ -19,10 +19,10 @@ const QuizOptions = () => {
 
     return (
         <Layout>
-            <Emoji name='smirk' style={{ fontSize: 60 }} />
-            <QuestionTitle>
+            <Emoji name='smirk' style={{ fontSize: 80, marginBottom: 16 }} />
+            <Title>
                 Choose the difficulty
-            </QuestionTitle>
+            </Title>
             <View style={styles.difficultyOptions}>
                 <DifficultyButton
                     type={'easy'}

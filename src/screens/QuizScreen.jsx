@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import Error from '../components/Error';
 import Layout from '../components/Layout';
 import Loading from '../components/Loading';
 import Question from '../components/Question';
@@ -117,7 +118,7 @@ const QuizScreen = ({ route }) => {
     } else if(error === true) {
         return(
             <Layout>
-                <Text>There has been an error. Please try again later.</Text>
+                <Error />
             </Layout>
         );
     } else {
