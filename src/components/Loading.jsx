@@ -1,38 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import { View, Animated } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+/* eslint-disable react/jsx-boolean-value */
+import React from 'react';
 
-const Loading = () => {
-    const spinValue = useRef(new Animated.Value(0)).current;
+import Paragraph from './formatting/Paragraph';
 
-    Animated.View(
-        spinValue,
-        {
-            toValue: 1,
-            duration: 300,
-            useNativeDriver: true
-        }
-    ).start();
-
-    const spin = spinValue.interpolate({
-        inputRange: [0, 360],
-        outputRange: ['0deg', '360deg']
-    });
-
-    return (
-        <View>
-            <FontAwesome
-                name="spinner"
-                size={24}
-                color="black"
-                style={{ 
-                    transform: [{
-                        rotate: spin,
-                    }],
-                }}
-            />
-        </View>
-    );
-};
+const Loading = () => (
+  <Paragraph bold={true}>Loading...</Paragraph>
+);
 
 export default Loading;
