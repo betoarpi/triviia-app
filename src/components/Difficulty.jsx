@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
@@ -20,14 +20,37 @@ const styles = StyleSheet.create({
   },
 });
 
-const Difficulty = ({ difficulty, theme }) => (
-  <View style={styles.difficulty}>
-    <Fontisto name="hashtag" size={12} color={theme.colors.text} />
-    <Text style={[styles.difficultyText, { color: theme.colors.text }]}>
-      {`  ${difficulty}`}
-    </Text>
-  </View>
-);
+const Difficulty = ({ difficulty, theme }) => {
+  const [textColor, setTextColor] = useState(null);
+  useEffect(() => {
+    setTextColor(() => {
+      switch (difficulty) {
+        case 'easy':
+          setTextColor(theme.colors.easy);
+          break;
+        case 'medium':
+          setTextColor(theme.colors.medium);
+          break;
+        case 'hard':
+          setTextColor(theme.colors.hard);
+          break;
+        default:
+          setTextColor(theme.colors.text);
+          break;
+      }
+      return textColor;
+    });
+  });
+
+  return (
+    <View style={styles.difficulty}>
+      <Fontisto name="hashtag" size={12} color={textColor} />
+      <Text style={[styles.difficultyText, { color: textColor }]}>
+        {`  ${difficulty}`}
+      </Text>
+    </View>
+  );
+};
 
 Difficulty.propTypes = {
   difficulty: propTypes.string.isRequired,
@@ -35,10 +58,6 @@ Difficulty.propTypes = {
     colors: propTypes.shape({
       primary: propTypes.string,
       text: propTypes.string,
-      background: propTypes.string,
-      button: propTypes.string,
-      true: propTypes.string,
-      false: propTypes.string,
       easy: propTypes.string,
       medium: propTypes.string,
       hard: propTypes.string,

@@ -14,7 +14,7 @@ const userImage = require('../../assets/user.png');
 
 const styles = StyleSheet.create({
   mainImage: {
-    height: 200,
+    height: 180,
     marginBottom: 24,
     resizeMode: 'contain',
     width: '100%',
