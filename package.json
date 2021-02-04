@@ -1,9 +1,4 @@
 {
-  "name": "triviia-game-app",
-  "private": true,
-  "description": "This is Triviia a trivia game app for iOS and Android.",
-  "version": "1.0",
-  "license": "MIT",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -44,5 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0"
-  }
+  },
+  "private": true,
+  "license": "MIT"
 }
